@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:insert="_include/head.html"></div>
+</head>
+<link rel="stylesheet" th:href="@{/styles.css}" />
+<header>
+<nav class="nav">
+
+	<div class="container-fluid">
+
+		<div class="navbar-fixed-top">
+			<ul class="nav navbar-nav">
+				<li><a th:href="@{/home}">Bibliothèques municipales</a></li>
+				
+				<li th:if="${log}==null"><a href="/loginPage">Login</a></li>
+				<li th:if="${log}==null"><a href="/newUser">Créer un
+						compte...</a></li>
+				<li th:if="${log}!=null"><a th:href="@{/PersonalSpace}">Mon
+						espace personnel</a>
+				<li><a href="/contact">contact</a></li>
+			
+				<li><a th:href="@{/Search}">Filtrer</a></li>
+				<li th:if="${log}!=null"><a href="/logout">Se deconnecter </a></li>
+				<li th:if="${log}==null" class="nav text-right" >Vous n'êtes pas identifié</li>
+				<li  th:if="${log}!=null" class="nav text-right" th:text="${log.userEmail}"></li>
+			</ul>
+
+		</div>
+	</div>
+</nav>
+ </header>
+
+
+
+<body>
+<div class="container pages">
+	<div class="d-flex justify-content-center h-100">
+		<div class="card">
+			<div class="card-header">
+				<h3>Se connecter</h3>
+				<div class="d-flex justify-content-end social_icon">
+					<span><i class="fab fa-facebook-square"></i></span>
+					<span><i class="fab fa-google-plus-square"></i></span>
+					<span><i class="fab fa-twitter-square"></i></span>
+				</div>
+			</div>
+			
+			
+			
+			<div class="card-body">
+				<form method="post" action="/login" modelAttribute="userSession">
+					
+					
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
+	
+						 <input type="text" class="form-control" name="userEmail" placeholder="email" >
+						
+					</div>
+					
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-key"></i></span>
+						</div>
+						<input type="password" class="form-control" name="userPassword" placeholder="Mot de passe">
+					</div>
+					<div class="row align-items-center remember">
+						<input type="checkbox">Remember Me
+					</div>
+					<div class="form-group">
+						<input type="submit" value="Login" class="btn float-right login_btn">
+					</div>
+				</form>
+			</div>
+			<div class="card-footer">
+				<div class="d-flex justify-content-center links">
+					Don't have an account?<a href="/newUser">Sign Up</a>
+				</div>
+				<div class="d-flex justify-content-center">
+					<a href="#">Forgot your password?</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+     
+</body>
+<footer>
+    <div th:insert="_include/footer.html"></div>
+</footer>
+
+</html>

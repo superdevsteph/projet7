@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<link rel="stylesheet" th:href="@{/styles.css}" />
+
+<nav class="nav">
+
+	<div class="container-fluid">
+
+		<div class="navbar-fixed-top">
+			<ul class="nav navbar-nav">
+				<li><a href="/home">Bibliothèques municipales</a></li>
+				
+				<li th:if="${log}==null"><a href="/loginPage">Login</a></li>
+				<li th:if="${log}==null"><a href="/newUser">Créer un
+						compte...</a></li>
+				<li th:if="${log}!=null"><a th:href="@{/PersonalSpace}">Mon
+						espace personnel</a>
+			<!-- 	<li><a href="/contact">contact</a></li> -->
+				<li><form action='#' th:action="@{/SearchByBookName}"
+						th:object="${bookName}" method="POST">
+						<input type="text" id="searchBookName" class="search form-control"
+							placeholder="Chercher un livre" th:field="*{bookName}"> <input
+							type="submit" value="Chercher" style="display: none">
+					</form></li>
+				<li><a th:href="@{/Search}">Filtrer</a></li>
+				<li th:if="${log}!=null"><a href="/logout">Se deconnecter </a></li>
+				<div  th:if="${log}==null" class="nav text-right" >Vous n'êtes pas identifié</div>
+				<div  th:if="${log}!=null" class="nav text-right" th:text="${log.userEmail}"></div>
+			</ul>
+
+		</div>
+	</div>
+</nav>
