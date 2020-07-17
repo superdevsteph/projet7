@@ -46,7 +46,7 @@ public class EmailService {
                     "\nVous avez emprunté à la bibliothèque le document suivant : \n\n" + lateBookReservation.get(i).getBook().getBookName() +
                     " de " + lateBookReservation.get(i).getBook().getBookAuthor() +
                     " \n\nLe retour était prévu le: " + lateBookReservation.get(i).getEndOfReservationDate() +
-                    "\n\nNous vous rappelons que la durée d'un prêt est de 4 semaines avec la possibiité de le prolonger une fois de 4 semaines supplménentaires.\n" + 
+                    "\n\nNous vous rappelons que la durée d'un prêt est de 4 semaines avec la possibilité de le prolonger une fois de 4 semaines supplménentaires.\n" + 
                     " \n\nNous vous remercions de bien vouloir rapporter cet ouvrage le plus " + 
                     " rapidement possible, afin que d’autres lecteurs puissent en profiter à la bibliothèque :\n\n " +
                     lateBookReservation.get(i).getLibrary().getLibraryName()+
