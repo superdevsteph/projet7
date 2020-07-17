@@ -1,3 +1,19 @@
+.cover{
+ @media (min-width: 576px) { width:50px height:100px}
+ @media (min-width: 768px){ width:50px height:100px}
+}
+ 
+ .navbar-toggler-icon {
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    content: "";
+    background: no-repeat center center;
+    background-size: 100% 100%;
+
+    background-image: escape-svg($navbar-light-toggler-icon-bg);
+  }
 
 .row{
 	font-size: 12px;

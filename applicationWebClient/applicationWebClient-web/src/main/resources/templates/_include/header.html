@@ -9,11 +9,11 @@
 
 	<div class="container-fluid">
 
-		<div class="navbar-fixed-top">
+	<div class="navbar-fixed-top">
 			<ul class="nav navbar-nav">
 				<li><a href="/home">Bibliothèques municipales</a></li>
 				
-				<li th:if="${log}==null"><a href="/loginPage">Login</a></li>
+				<li class="nav-item" th:if="${log}==null"><a href="/loginPage">Login</a></li>
 				<li th:if="${log}==null"><a href="/newUser">Créer un
 						compte...</a></li>
 				<li th:if="${log}!=null"><a th:href="@{/PersonalSpace}">Mon

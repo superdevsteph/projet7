@@ -18,7 +18,7 @@
         <div th:each="b : ${books}" class="col-xs-5 col-sm-4 col-md-3">
             <p></p>
             <!-- cover and description (mouse over) -->
-            <img th:src="${b.bookPictureUrl}" style="width:250px;height:300px; border:0px;" class="img-rounded"
+            <img th:src="${b.bookPictureUrl}" style="width:250px;height:300px; border:0px;" class="cover img-rounded"
                  th:title="'*Nom:'+${b.bookName}+' *Auteur:'+${b.bookAuthor}+' *Description:'+${b.bookDescription}">
             <!-- tag -->
             <div>
