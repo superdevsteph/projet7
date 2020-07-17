@@ -40,13 +40,18 @@ public class EmailService {
         // send email for each reservation
         for (int i = 0; i < lateBookReservation.size(); i++) {
             to = lateBookReservation.get(i).getLibraryUser().getUserEmail();
-            subject = "Rappel, date de fin de réservation dépassé !";
-            text = "Bonjour " + lateBookReservation.get(i).getLibraryUser().getUserFirstName() + "," +
-                    "\nLa date de retour maximale pour le livre: " + lateBookReservation.get(i).getBook().getBookName() +
+            subject = "Rappel, la date de fin de réservation est dépassée";
+            text = "Bonjour " + lateBookReservation.get(i).getLibraryUser().getUserFirstName() + ",\n" +
+            
+                    "\nVous avez emprunté à la bibliothèque le document suivant : \n\n" + lateBookReservation.get(i).getBook().getBookName() +
                     " de " + lateBookReservation.get(i).getBook().getBookAuthor() +
-                    " était le: " + lateBookReservation.get(i).getEndOfReservationDate() + " !" +
-                    "\nMerci de ramener le livre au plus tôt dans la bibliothèque: " +
-                    lateBookReservation.get(i).getLibrary().getLibraryName() + " !";
+                    " \n\nLe retour était prévu le: " + lateBookReservation.get(i).getEndOfReservationDate() +
+                    "\n\nNous vous rappelons que la durée d'un prêt est de 4 semaines avec la possibiité de le prolonger une fois de 4 semaines supplménentaires.\n" + 
+                    " \n\nNous vous remercions de bien vouloir rapporter cet ouvrage le plus " + 
+                    " rapidement possible, afin que d’autres lecteurs puissent en profiter à la bibliothèque :\n\n " +
+                    lateBookReservation.get(i).getLibrary().getLibraryName()+
+                    " \n\nLe responsable de la Bibliothèque "; 
+                    
 
             //send mail
             SimpleMailMessage message = new SimpleMailMessage();
