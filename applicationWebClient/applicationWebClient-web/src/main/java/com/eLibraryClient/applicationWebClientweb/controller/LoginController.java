@@ -46,7 +46,7 @@ public class LoginController {
         List<BookBean> listBooks = bookManager.getListAllBooks();
 
         newUserBean.setUserEmail(userSession.getUserEmail());
-        // check if mail and pawword input is ok on microserviceBdd
+        // check if mail and password input is ok on microserviceBdd
         checkPassword = libraryUserManager.checkIfMailAndPassIsOk(userSession);
 
         if (checkPassword) {

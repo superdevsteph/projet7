@@ -1,37 +1,110 @@
-<!DOCTYPE HTML>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
 
+<title>Bibliothèque</title>
+
+
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"
+	rel="stylesheet">
+<link
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+	rel="stylesheet">
+
 <link rel="stylesheet" th:href="@{/styles.css}" />
 
-<nav class="nav">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
 
-	<div class="container-fluid">
+<!-- Optional theme -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+	crossorigin="anonymous">
 
-		<div class="navbar-fixed-top">
-			<ul class="nav navbar-nav">
-				<li><a href="/home">Bibliothèques municipales</a></li>
+<!-- Latest compiled and minified JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+	crossorigin="anonymous"></script>
 
-				<li class="nav-item" th:if="${log}==null"><a href="/loginPage">Login</a></li>
-				<li th:if="${log}==null"><a href="/newUser">Créer un
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script
+	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script>    
+$(function () {
+	  $(document).scroll(function () {
+	    var $nav = $(".navbar-fixed-top");
+	    $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+	  });
+	});</script>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+<!-- Font Awesome icons (free version)-->
+<script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js"
+	crossorigin="anonymous"></script>
+<!-- Google fonts-->
+<link href="https://fonts.googleapis.com/css?family=Varela+Round"
+	rel="stylesheet" />
+<link
+	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+	rel="stylesheet" />
+<!-- Core theme CSS (includes Bootstrap)-->
+<link href="css/styles.css" rel="stylesheet" />
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/home">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+    
+
+      	<li class="nav-item " th:if="${log}==null"><a class="nav-link" href="/loginPage">Login</a></li>
+				<li class="nav-item" th:if="${log}==null"><a class="nav-link" href="/newUser">Créer un
 						compte...</a></li>
-				<li th:if="${log}!=null"><a th:href="@{/PersonalSpace}">Mon
-						espace personnel</a> <!-- 	<li><a href="/contact">contact</a></li> -->
-				<li><form action='#' th:action="@{/SearchByBookName}"
+				<li class="nav-item" th:if="${log}!=null"><a class="nav-link" th:href="@{/PersonalSpace}">Mon
+						espace personnel</a> 
+				
+				<li class="nav-item"><a class="nav-link" th:href="@{/Search}">Filtrer</a></li>
+				<li class="nav-item" th:if="${log}!=null"><a class="nav-link" href="/logout">Se deconnecter </a></li>
+				
+				<form action='#' th:action="@{/SearchByBookName}"
 						th:object="${bookName}" method="POST">
 						<input type="text" id="searchBookName" class="search form-control"
 							placeholder="Chercher un livre" th:field="*{bookName}"> <input
 							type="submit" value="Chercher" style="display: none">
-					</form></li>
-				<li><a th:href="@{/Search}">Filtrer</a></li>
-				<li th:if="${log}!=null"><a href="/logout">Se deconnecter </a></li>
-				<div th:if="${log}==null" class="nav text-right">Vous n'êtes
+					</form>
+      
+    </ul>
+   
+	
+    <div class="nav-item nav text-right" th:if="${log}==null" >Vous n'êtes
 					pas identifié</div>
-				<div th:if="${log}!=null" class="nav text-right"
-					th:text="${log.userEmail}"></div>
-			</ul>
-
-		</div>
-	</div>
+					
+				<div class="nav-item nav text-right" th:if="${log}!=null" 
+					th:text="${log.userEmail}">
+					</div>
+  </div>
 </nav>
+
+
