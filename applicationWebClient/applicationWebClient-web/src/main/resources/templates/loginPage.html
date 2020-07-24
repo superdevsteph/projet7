@@ -1,41 +1,14 @@
 <!DOCTYPE HTML>
-
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
+
 <head>
 <div th:insert="_include/head.html"></div>
 </head>
-<link rel="stylesheet" th:href="@{/styles.css}" />
 <header>
-	<nav class="nav">
 
-		<div class="container-fluid">
-
-			<div class="navbar-fixed-top">
-				<ul class="nav navbar-nav">
-					<li><a th:href="@{/home}">Bibliothèques municipales</a></li>
-
-					<li th:if="${log}==null"><a href="/loginPage">Login</a></li>
-					<li th:if="${log}==null"><a href="/newUser">Créer un
-							compte...</a></li>
-					<li th:if="${log}!=null"><a th:href="@{/PersonalSpace}">Mon
-							espace personnel</a>
-					<li><a href="/contact">contact</a></li>
-
-					<li><a th:href="@{/Search}">Filtrer</a></li>
-					<li th:if="${log}!=null"><a href="/logout">Se deconnecter
-					</a></li>
-					<li th:if="${log}==null" class="nav text-right">Vous n'êtes
-						pas identifié</li>
-					<li th:if="${log}!=null" class="nav text-right"
-						th:text="${log.userEmail}"></li>
-				</ul>
-
-			</div>
-		</div>
-	</nav>
+	<div th:insert="_include/header.html"></div>
 </header>
-
 
 
 <body>
