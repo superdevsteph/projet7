@@ -45,4 +45,4 @@ Pour l'exécution du batch :
 
 - Planifier une tâche qui lancera chaque jour la commande (en adaptant le chemin) : 
 
-java -jar batchMail-business-0.0.1-SNAPSHOT.jar
+java -jar batchMail-business-0.0.1-SNAPSHOT.jar# P7_vers_P10
