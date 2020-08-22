@@ -47,3 +47,4 @@ Pour l'exécution du batch :
 
 java -jar batchMail-business-0.0.1-SNAPSHOT.jar# P7_vers_P10
 # P7_vers_P10
+# P7_to_P10
